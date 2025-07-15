@@ -1,0 +1,32 @@
+package com.yumi.learn.controller.vo.param;
+
+import com.yumi.learn.common.validator.PhoneNumber;
+import com.yumi.learn.controller.vo.validated.group.UserGroup;
+import com.yumi.learn.common.validator.value.Role;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
+@Data
+public class UserCommand {
+
+	@NotBlank(message = "id不能为空", groups = UserGroup.UpdateGroup.class)
+	private String id;
+
+	@NotBlank(message = "用户名不能为空", groups = { UserGroup.CreateGroup.class, UserGroup.UpdateGroup.class })
+	private String userName;
+
+	@NotBlank(message = "姓名不能为空", groups = { UserGroup.CreateGroup.class, UserGroup.UpdateGroup.class })
+	private String name;
+
+	@PhoneNumber(groups = { UserGroup.CreateGroup.class, UserGroup.UpdateGroup.class })
+	private String phone;
+
+	@NotNull(message = "性别不能为空", groups = { UserGroup.CreateGroup.class, UserGroup.UpdateGroup.class })
+	private Integer sex;
+
+	@Valid
+	@NotNull(message = "角色信息不能为空")
+	private Role role;
+}
