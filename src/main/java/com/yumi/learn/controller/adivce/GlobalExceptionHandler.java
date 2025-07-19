@@ -31,6 +31,19 @@ public class GlobalExceptionHandler {
 	}
 
 	// 参数校验异常
+	@ExceptionHandler(ConstraintViolationException.class)
+	@ResponseBody
+	public Result error(ConstraintViolationException e) {
+		log.warn("ConstraintViolationException, {}", e.getMessage());
+		StringBuilder sb = new StringBuilder();
+		for (ConstraintViolation<?> violation : e.getConstraintViolations()) {
+			sb.append(violation.getMessage());
+		}
+		return Result.error(ResultCodeEnum.ARGUMENT_VALID_ERROR.getCode(), sb.toString());
+	}
+
+
+	// 参数校验异常
 	@ExceptionHandler(BindException.class)
 	@ResponseBody
 	public Result error(BindException e) {
@@ -42,17 +55,6 @@ public class GlobalExceptionHandler {
 		return Result.error(ResultCodeEnum.ARGUMENT_VALID_ERROR.getCode(), sb.toString());
 	}
 
-	// 参数校验异常
-	@ExceptionHandler(ConstraintViolationException.class)
-	@ResponseBody
-	public Result error(ConstraintViolationException e) {
-		log.warn("ConstraintViolationException, {}", e.getMessage());
-		StringBuilder sb = new StringBuilder();
-		for (ConstraintViolation<?> violation : e.getConstraintViolations()) {
-			sb.append(violation.getMessage());
-		}
-		return Result.error(ResultCodeEnum.ARGUMENT_VALID_ERROR.getCode(), sb.toString());
-	}
 
 	// 全局异常
 	@ExceptionHandler(Exception.class)
