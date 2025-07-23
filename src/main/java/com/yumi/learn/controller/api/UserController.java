@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * (1 spring校验相关)
  */
-//@Validated
+// @Validated
 @RestController
 @RequestMapping("/user")
 public class UserController {

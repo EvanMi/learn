@@ -1,28 +1,33 @@
 package com.yumi.learn.domain.image;
 
-public class FakeImage implements Image{
-    @Override
-    public boolean resize(int width, int height) {
-        return false;
-    }
+/**
+ * (4 组合优先于继承)
+ */
+public class FakeImage implements Image {
 
-    @Override
-    public int getWidth() {
-        return 0;
-    }
+	@Override
+	public boolean resize(int width, int height) {
+		return false;
+	}
 
-    @Override
-    public int getHeight() {
-        return 0;
-    }
+	@Override
+	public int getWidth() {
+		return 0;
+	}
 
-    @Override
-    public boolean flipHorizontal() {
-        return false;
-    }
+	@Override
+	public int getHeight() {
+		return 0;
+	}
 
-    @Override
-    public boolean flipVertical() {
-        return false;
-    }
+	@Override
+	public boolean flipHorizontal() {
+		return false;
+	}
+
+	@Override
+	public boolean flipVertical() {
+		return false;
+	}
+
 }

@@ -8,14 +8,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterConfig {
 
-    /**
-     * (3 多版本API)
-     * */
-    @Bean
-    public FilterRegistrationBean<CustomHeaderFilter> loggingFilter() {
-        FilterRegistrationBean<CustomHeaderFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new CustomHeaderFilter());
-        registrationBean.addUrlPatterns("/*");
-        return registrationBean;
-    }
+	/**
+	 * (3 多版本API)
+	 */
+	@Bean
+	public FilterRegistrationBean<CustomHeaderFilter> loggingFilter() {
+		FilterRegistrationBean<CustomHeaderFilter> registrationBean = new FilterRegistrationBean<>();
+		registrationBean.setFilter(new CustomHeaderFilter());
+		registrationBean.addUrlPatterns("/*");
+		return registrationBean;
+	}
+
 }
