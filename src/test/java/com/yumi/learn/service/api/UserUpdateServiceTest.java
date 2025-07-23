@@ -10,37 +10,46 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class UserUpdateServiceTest {
-    private static final Logger log = LoggerFactory.getLogger(UserUpdateServiceTest.class);
-    @Resource
-    UserUpdateService userUpdateService;
-    @Resource
-    UserUpdateService1 userUpdateService1;
 
-    @Test
-    void testUpdateUser() {
+	private static final Logger log = LoggerFactory.getLogger(UserUpdateServiceTest.class);
 
-        UserParam param = new UserParam();
-        param.setId("1223");
-        param.setUserName("aaa");
-        param.setName("sean");
-        param.setPhone("12345678901");
-        param.setSex(18);
+	@Resource
+	UserUpdateService userUpdateService;
 
-        Role role = new Role("");
-        param.setRole(role);
+	@Resource
+	UserUpdateService1 userUpdateService1;
 
-        log.info("userUpdateService result: {}", userUpdateService.updateUser(param));
-    }
+	@Test
+	void testUpdateUser() {
 
-    @Test
-    void testUpdateUser1() {
+		UserParam param = new UserParam();
+		param.setId("1223");
+		param.setUserName("aaa");
+		param.setName("sean");
+		param.setPhone("12345678901");
+		param.setSex(18);
 
-        UserParam param = new UserParam();
-        param.setUserName("aaa");
-        param.setName("sean");
-        param.setPhone("12345678901");
-        param.setSex(18);
+		Role role = new Role("asdsd");
+		param.setRole(role);
 
-        log.info("userUpdateService1 result: {}", userUpdateService1.updateUser(param));
-    }
+		log.info("userUpdateService result: {}", userUpdateService.updateUser(param));
+	}
+
+	@Test
+	void testSetId() {
+		userUpdateService.setId("1");
+	}
+
+	@Test
+	void testUpdateUser1() {
+
+		UserParam param = new UserParam();
+		param.setUserName("aaa");
+		param.setName("sean");
+		param.setPhone("12345678901");
+		param.setSex(18);
+
+		log.info("userUpdateService1 result: {}", userUpdateService1.updateUser(param));
+	}
+
 }

@@ -1,0 +1,5 @@
+curl http://127.0.0.1:8080/user/getUserById/1
+curl http://127.0.0.1:8080/user/common/update -H 'Content-Type: application/json' -d '{"userName":"yumi","name":"yu","phone":"13333333333", "sex":1, "id":"123"}'
+curl http://127.0.0.1:8080/user/common/create -H 'Content-Type: application/json' -d '{"userName":"yumi","name":"yu","phone":"13333333333"}'
+curl http://127.0.0.1:8080/user/update -H 'Content-Type: application/json' -d '{"userName":"yumi","name":"yu","phone":"13333333333", "sex":1, "id":"123"}'
+curl http://127.0.0.1:8080/user/create -H 'Content-Type: application/json' -d '{"userName":"yumi","name":"yu","phone":"13333333333"}'

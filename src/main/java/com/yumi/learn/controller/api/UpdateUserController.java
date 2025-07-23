@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * (1 spring校验相关)
- * */
+ */
 @Validated
 @RestController
 @RequestMapping("/user/_update")
 public class UpdateUserController {
 
-    @PutMapping
-    @Validated(UserGroup.UpdateGroup.class)
-    public Result updateUser(@Valid @RequestBody UserCommand userCommand) {
-        return Result.success("参数校验成功");
-    }
+	@PutMapping
+	@Validated(UserGroup.UpdateGroup.class)
+	public Result updateUser(@Valid @RequestBody UserCommand userCommand) {
+		return Result.success("参数校验成功");
+	}
 
 }
