@@ -61,7 +61,7 @@ public class GlobalExceptionHandler {
 	@ResponseBody
 	public Result error(Exception e) {
 		log.warn("Exception, {}", e.getMessage());
-		return Result.fail("执行了全局异常处理");
+		return Result.fail(e.getMessage());
 	}
 
 }

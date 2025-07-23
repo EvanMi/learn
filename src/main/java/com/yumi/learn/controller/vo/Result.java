@@ -25,7 +25,7 @@ public class Result {
 	}
 
 	public static Result fail(String message) {
-		return new Result(ResultCodeEnum.FAIL.getCode(), "失败", null);
+		return new Result(ResultCodeEnum.FAIL.getCode(), message, null);
 	}
 
 	public static Result error(int code, String message) {
