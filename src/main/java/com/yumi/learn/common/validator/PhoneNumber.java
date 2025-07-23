@@ -11,10 +11,15 @@ import java.lang.annotation.Target;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
+@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR,
+		ElementType.PARAMETER, ElementType.TYPE_USE })
 @Constraint(validatedBy = PhoneValidator.class)
 public @interface PhoneNumber {
-    String message() default "请填写正确的手机号";
-    Class<?>[ ] groups() default {};
-    Class<? extends Payload>[ ] payload() default {};
+
+	String message() default "请填写正确的手机号";
+
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
+
 }

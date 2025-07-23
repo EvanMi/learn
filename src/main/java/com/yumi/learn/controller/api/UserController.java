@@ -7,6 +7,8 @@ import com.yumi.learn.controller.vo.param.UserUpdateCommand;
 import com.yumi.learn.controller.vo.validated.group.UserGroup;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,13 +16,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 /**
  * (1 spring校验相关)
- * */
+ */
 //@Validated
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	/**
 	 * 注解 @Valid的触发时机是在HandlerMethodArgumentResolver这个组件封装解析参数是触发
@@ -31,10 +36,9 @@ public class UserController {
 	}
 
 	/**
-	 * 注解 @Validated如果在Service层中使用，是AOP机制，
-	 * 通过 MethodValidationInterceptorAOP 代理在方法调用是触发
-	 * 注解@Validated 如果只是在Controller层方法中使用，
-	 * Spring MVC 会将其视为 @Valid 的增强版，仍通过 RequestResponseBodyMethodProcessor 触发校验
+	 * 注解 @Validated如果在Service层中使用，是AOP机制， 通过 MethodValidationInterceptor AOP 代理在方法调用是触发
+	 * 注解@Validated 如果只是在Controller层方法中使用， Spring MVC 会将其视为 @Valid 的增强版，仍通过
+	 * RequestResponseBodyMethodProcessor 触发校验
 	 */
 	@PostMapping("update")
 	public Result updateUser(@Validated @RequestBody UserUpdateCommand userUpdateCommand) {
@@ -51,6 +55,9 @@ public class UserController {
 		return Result.success("参数校验成功");
 	}
 
+	/**
+	 * HandlerMethodValidator
+	 */
 	@GetMapping("getUserById/{id}")
 	public Result getUserById(@PathVariable @Size(min = 2, max = 5, message = "id长度不符合要求") String id) {
 		return Result.success("参数校验成功");

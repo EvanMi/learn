@@ -3,9 +3,7 @@ package com.yumi.learn.controller.vo.param;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 
-@Data
 public class UserCreateCommand {
 
 	@NotBlank(message = "用户名不能为空")
@@ -19,5 +17,37 @@ public class UserCreateCommand {
 
 	@NotNull(message = "性别不能为空")
 	private Integer sex;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
 
 }
