@@ -12,7 +12,10 @@ import java.io.RandomAccessFile;
 import java.net.URI;
 import java.nio.channels.FileChannel;
 
-public class NettyZeroFileDownloadClient {
+/**
+ * (5 netty零拷贝下载文件)
+ * */
+public class NettyZeroCopyFileDownloadClient {
 
 	public void downLoadByUrl(@NotBlank String url, @NotBlank String targetPath) throws Exception {
 		URI uri = URI.create(url);
@@ -69,16 +72,4 @@ public class NettyZeroFileDownloadClient {
 			group.shutdownGracefully();
 		}
 	}
-
-	public static void main(String[] args) throws Exception {
-		// NettyZeroFileDownloadClient nettyZeroFileDownloadClient = new
-		// NettyZeroFileDownloadClient();
-		// nettyZeroFileDownloadClient.downLoadByUrl("http://storage.jd.com/erpweb/forum-icon.png",
-		// "/Users/mipengcheng3/Downloads/test123.png");
-		long x = 1752808460809L;
-		String paddedBinaryString = String.format("%64s", Long.toBinaryString(x)).replace(' ', '0');
-		System.out.println(Long.toBinaryString(x).length());
-		System.out.println(paddedBinaryString.length());
-	}
-
 }
