@@ -14,7 +14,7 @@ import java.nio.channels.FileChannel;
 
 /**
  * (5 netty零拷贝下载文件)
- * */
+ */
 public class NettyZeroCopyFileDownloadClient {
 
 	public void downLoadByUrl(@NotBlank String url, @NotBlank String targetPath) throws Exception {
@@ -72,4 +72,5 @@ public class NettyZeroCopyFileDownloadClient {
 			group.shutdownGracefully();
 		}
 	}
+
 }
