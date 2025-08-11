@@ -1,10 +1,11 @@
 package com.yumi.learn.common.value;
+
 /**
  * (3 多版本API)
- * */
+ */
 public record Version(VersionEnum versionEnum) {
 	/***
-	 *  &lt;type&gt;/&lt;tree&gt;.&lt;subtype&gt;+&lt;suffix&gt;[;参数…] </br>
+	 * &lt;type&gt;/&lt;tree&gt;.&lt;subtype&gt;+&lt;suffix&gt;[;参数…] </br>
 	 * 1.type：application、audio、example、image、message、model、multipart、text、video </br>
 	 * 2. tree：vnd </br>
 	 * 3. subtype：yumi.v[x] 4. suffix：json 5. 参数：charset=utf-8 </br>
@@ -35,10 +36,7 @@ public record Version(VersionEnum versionEnum) {
 
 	public enum VersionEnum {
 
-		V1("v1", v1VersionAcceptStr, true),
-		V2("v2", v2VersionAcceptStr, false),
-		V3("v3", v3VersionAcceptStr, false),
-		;
+		V1("v1", v1VersionAcceptStr, true), V2("v2", v2VersionAcceptStr, false), V3("v3", v3VersionAcceptStr, false),;
 
 		VersionEnum(String code, String accept, Boolean deprecated) {
 			this.code = code;
