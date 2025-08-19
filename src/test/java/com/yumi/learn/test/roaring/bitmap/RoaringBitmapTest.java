@@ -137,45 +137,37 @@ public class RoaringBitmapTest {
 
 		// 对比占用空间大小 - 10w元素
 		RoaringBitmap roaringBitmap3 = new RoaringBitmap();
-		byte[] bits2 = new byte[100000];
 		for (int i = 0; i < 100000; i++) {
 			roaringBitmap3.add(i);
-			bits2[i] = (byte) i;
 		}
 		System.out.println("10w数据 roaringbitmap byte size:" + roaringBitmap3.getSizeInBytes());
-		System.out.println("10w数据 位图数组 byte size:" + bits2.length);
+		System.out.println("10w数据 位图数组 byte size:" + (100000 + 8 - 1) / 8);
 
 		RoaringBitmap roaringBitmap4 = new RoaringBitmap();
-		byte[] bits3 = new byte[1000000];
 		for (int i = 0; i < 1000000; i++) {
 			roaringBitmap4.add(i);
-			bits3[i] = (byte) i;
 		}
 		System.out.println("100w数据 roaringbitmap byte size:" + roaringBitmap4.getSizeInBytes());
-		System.out.println("100w数据 位图数组 byte size:" + bits3.length);
+		System.out.println("100w数据 位图数组 byte size:" + (1000000 + 8 - 1) / 8);
 
 		RoaringBitmap roaringBitmap5 = new RoaringBitmap();
-		byte[] bits4 = new byte[10000000];
 		for (int i = 0; i < 10000000; i++) {
 			roaringBitmap5.add(i);
-			bits4[i] = (byte) i;
 		}
 		System.out.println("1000w数据 roaringbitmap byte size:" + roaringBitmap5.getSizeInBytes());
-		System.out.println("1000w数据 位图数组 byte size:" + bits4.length);
+		System.out.println("1000w数据 位图数组 byte size:" + (10000000 + 8 - 1) / 8);
 	}
 
 	@Test
 	public void testSize() {
 		RoaringBitmap roaringBitmap5 = new RoaringBitmap();
-		byte[] bits4 = new byte[10000000];
 		for (int i = 0; i < 10000000; i++) {
 			if (i == 1 || i == 9999999) {
 				roaringBitmap5.add(i);
-				bits4[i] = (byte) i;
 			}
 		}
 		System.out.println("两个稀疏数据 roaringbitmap byte size:" + roaringBitmap5.getSizeInBytes());
-		System.out.println("两个稀疏数据 位图数组 byte size:" + bits4.length);
+		System.out.println("两个稀疏数据 位图数组 byte size:" + (10000000 + 8 - 1) / 8);
 	}
 
 }
