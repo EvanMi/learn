@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.TimeUnit;
+
 /**
  * (7 UlId)
  * */
@@ -24,6 +27,7 @@ public class UlIdTest {
 	void testExample() {
 		var ulid = UlidCreator.getUlid();
 		var strUlid = ulid.toString();
+		logger.info("strUlid: {}", strUlid);
 		var ulid1 = Ulid.from(strUlid);
 		Assertions.assertEquals(ulid, ulid1);
 
@@ -36,9 +40,15 @@ public class UlIdTest {
 	 * Its main advantage is speed. <br/>
 	 */
 	@Test
-	void testMonotonicUlid() {
+	void testMonotonicUlid() throws InterruptedException {
 		// 同一毫秒内选择选择自增，所以速度快
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10; i++) {
+			var ulid = UlidCreator.getMonotonicUlid();
+			logger.info("ulid: {}", ulid);
+		}
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("---------------");
+		for (int i = 0; i < 10; i++) {
 			var ulid = UlidCreator.getMonotonicUlid();
 			logger.info("ulid: {}", ulid);
 		}

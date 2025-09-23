@@ -41,6 +41,11 @@ class UserUpdateServiceTest {
 	}
 
 	@Test
+	void testSetPhoneNumber() {
+		userUpdateService.setPhoneNumber("123");
+	}
+
+	@Test
 	void testUpdateUser1() {
 
 		UserParam param = new UserParam();

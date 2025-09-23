@@ -36,7 +36,10 @@ public record Version(VersionEnum versionEnum) {
 
 	public enum VersionEnum {
 
-		V1("v1", v1VersionAcceptStr, true), V2("v2", v2VersionAcceptStr, false), V3("v3", v3VersionAcceptStr, false),;
+		V1("v1", v1VersionAcceptStr, true),
+		V2("v2", v2VersionAcceptStr, false),
+		V3("v3", v3VersionAcceptStr, false),
+		;
 
 		VersionEnum(String code, String accept, Boolean deprecated) {
 			this.code = code;

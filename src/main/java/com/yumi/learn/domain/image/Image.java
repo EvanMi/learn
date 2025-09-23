@@ -37,4 +37,5 @@ public interface Image {
 	 */
 	boolean flipVertical();
 
+	byte[] getData();
 }

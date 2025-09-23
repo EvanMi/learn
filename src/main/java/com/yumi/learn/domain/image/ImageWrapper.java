@@ -30,6 +30,11 @@ public interface ImageWrapper extends Image {
 		return getImage().flipVertical();
 	}
 
+	@Override
+	default byte[] getData() {
+		return getImage().getData();
+	}
+
 	Image getImage();
 
 }

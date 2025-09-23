@@ -19,7 +19,8 @@ public class RestfulVersionController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RestfulVersionController.class);
 
-	@GetMapping(value = "/users/{userId}", produces = { Version.v1VersionAcceptStr, Version.v2VersionAcceptStr })
+	@GetMapping(value = "/users/{userId}", produces = { Version.v1VersionAcceptStr,
+			Version.v2VersionAcceptStr })
 	public Result getUserInfo(@PathVariable("userId") String userId, Version version) {
 		LOGGER.info("v1-v2-version: {}", version);
 		return Result.success(new User(userId));

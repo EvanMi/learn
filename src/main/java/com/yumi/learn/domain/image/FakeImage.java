@@ -5,6 +5,10 @@ package com.yumi.learn.domain.image;
  */
 public class FakeImage implements Image {
 
+	public FakeImage(byte[] bytes) {
+
+	}
+
 	@Override
 	public boolean resize(int width, int height) {
 		return false;
@@ -28,6 +32,11 @@ public class FakeImage implements Image {
 	@Override
 	public boolean flipVertical() {
 		return false;
+	}
+
+	@Override
+	public byte[] getData() {
+		return new byte[0];
 	}
 
 }

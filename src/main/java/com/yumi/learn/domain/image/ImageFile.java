@@ -5,8 +5,8 @@ package com.yumi.learn.domain.image;
  */
 public interface ImageFile {
 
-	void save(String path);
+	void save();
 
-	void load(String path);
+	void load();
 
 }

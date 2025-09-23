@@ -1,5 +1,6 @@
 package com.yumi.learn.controller.api;
 
+import com.yumi.learn.common.validator.PhoneNumber;
 import com.yumi.learn.controller.vo.Result;
 import com.yumi.learn.controller.vo.param.UserCommand;
 import com.yumi.learn.controller.vo.param.UserCreateCommand;
@@ -60,6 +61,11 @@ public class UserController {
 	 */
 	@GetMapping("getUserById/{id}")
 	public Result getUserById(@PathVariable @Size(min = 2, max = 5, message = "id长度不符合要求") String id) {
+		return Result.success("参数校验成功");
+	}
+
+	@GetMapping("getUserByPhoneNumber/{phoneNumber}")
+	private Result getUserByPhoneNumber(@PathVariable @PhoneNumber String phoneNumber) {
 		return Result.success("参数校验成功");
 	}
 
